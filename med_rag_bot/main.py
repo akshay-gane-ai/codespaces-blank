@@ -51,7 +51,7 @@ with st.sidebar:
                 vectorstore = create_faiss_index(chunks)
                 st.session_state.vectorstore = vectorstore
 
-                chat_model = get_chat_model(EURI_API_KEY)
+                chat_model = get_chat_model()
                 st.session_state.chat_model = chat_model
 
                 st.success("PDFs processed and indexed successfully!")
