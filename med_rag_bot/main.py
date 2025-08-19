@@ -4,6 +4,7 @@ from app.pdf_utils import extract_text_from_pdf
 from app.vectorstore_utils import create_faiss_index, retrieve_relevant_docs
 from app.ui import pdf_uploader
 import streamlit as st
+from datetime import datetime 
 import os
 from dotenv import load_dotenv
 load_dotenv(dotenv_path="med_rag_bot/app/.env")
@@ -75,7 +76,7 @@ if prompt := st.chat_input("Ask a question about your medical documents..."):
             st.session_state.messages.append({
                 "role": "user",
                 "content": prompt,
-                "timestamp": st.time()
+                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             })
 
         with st.spinner("Retrieving relevant documents..."):
@@ -102,7 +103,7 @@ if prompt := st.chat_input("Ask a question about your medical documents..."):
                 st.session_state.messages.append({
                     "role": "assistant",
                     "content": response,
-                    "timestamp": st.time()
+                    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 })
         else:
             with st.chat_message("assistant"):
@@ -111,6 +112,6 @@ if prompt := st.chat_input("Ask a question about your medical documents..."):
                 st.session_state.messages.append({
                     "role": "assistant",
                     "content": response,
-                    "timestamp": st.time()
+                    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 })
 
