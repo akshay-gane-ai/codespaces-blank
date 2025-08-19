@@ -55,7 +55,7 @@ with st.sidebar:
                 st.session_state.chat_model = chat_model
 
                 st.success("PDFs processed and indexed successfully!")
-                st.balloons("Ready to chat with your documents!")
+                st.balloons()
 
 # Main page layout
 st.header("MedRAG Chatbot 🩺")
