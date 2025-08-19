@@ -6,3 +6,4 @@ langchain
 euriai
 python-dotenv
 langchain_community
+sentence-transformers
