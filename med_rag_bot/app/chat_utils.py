@@ -9,7 +9,8 @@ def get_chat_model():
     """
     Create a chat model using the Euri AI API with specified parameters.
     """
-    with open("med_rag_bot/config.json", "r") as config_file:
+    config_path = os.path.join(os.path.dirname(__file__), "..", "config.json")
+    with open(config_path, "r") as config_file:
         config = json.load(config_file)
     return create_chat_model(
     api_key=EURI_API_KEY,
